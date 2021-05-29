@@ -1,0 +1,42 @@
+<?php
+/**
+ * MageRakesh
+ * Copyright (C) 2020 MageRakesh <rakeshroy78000@gmail.com>
+ *
+ * @package MageRakesh_Customer
+ * @copyright Copyright (c) 2020 MageRakesh_Customer (https://github.com/MageRakesh)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageRakesh <rakeshroy78000@gmail.com>
+ */
+/** @var TYPE_NAME $block */
+
+$getCustomerStatusField = $block->getOptionList();
+$getCustomerStatusValue = $block->getCustomerStatusValue();
+?>
+<form class=""
+      action="<?php echo $this->getUrl("customer/customer/savecustomerstatus")?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Customer Status')) ?></span></legend><br />
+        <select name='customer_status[]' class='form-control'>
+            <?php foreach($getCustomerStatusField as $option) {
+                ?>
+                    <option value="<?php echo $option['value'] ?>" <?php if($getCustomerStatusValue != '' && $option['value'] == $getCustomerStatusValue){ ?> selected <?php } ?>  >   <?php echo $option['label'] ?></option>
+            <?php } ?>
+        </select>
+
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageRakesh
+ * Copyright (C) 2020 MageRakesh <rakeshroy78000@gmail.com>
+ *
+ * @package MageRakesh_Customer
+ * @copyright Copyright (c) 2020 MageRakesh_Customer (https://github.com/MageRakesh)
+ * @license http://opensource.org/licenses/gpl-3.0.html GNU General Public License,version 3 (GPL-3.0)
+ * @author MageRakesh <rakeshroy78000@gmail.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="MageRakesh\Customer\Block\Index" name="customer_index_index" template="MageRakesh_Customer::index.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>
+
